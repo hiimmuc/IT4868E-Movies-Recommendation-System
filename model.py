@@ -151,6 +151,14 @@ if __name__ == "__main__":
     print(f"Trainable parameters: {trainable_params}")
     for i, batch in enumerate(data.trainloader):
         print(f"Batch {i}: {batch}")
-        print("-----------------")
-        res, res_dict = model(batch)
+        print('-----------------')
+        edge = batch['movie', 'ratedby', 'user']
+        movie = batch['movie']
+        user = batch['user']
+        print(edge.edge_index)
+        print(edge.edge_label_index)
+        print(edge.input_id)
+        print(movie.node_id.shape)
+        print(user.node_id.shape)
+        # res, res_dict = model(batch)
         break

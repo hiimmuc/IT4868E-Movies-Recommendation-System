@@ -106,8 +106,10 @@ def train_step(model, trainloader, optimizer, scheduler, scaler):
             torch.nn.utils.clip_grad_norm_(model.parameters(), max_norm=10.0)
             optimizer.step()
 
-        pbar.set_postfix({f"batch": i, f"train loss": loss_items.item()})
-
+        pbar.set_postfix({
+            f"batch": i,
+            f"train loss": tloss.item()})
+    
     return tloss
 
 
